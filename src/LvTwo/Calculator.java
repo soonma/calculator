@@ -69,6 +69,7 @@ public class Calculator {
     //원의 넓이 구하는 공식
     public void setCircle(int fristnumber){
         circum = fristnumber+fristnumber*Circumference;
+        check=true;
     }
     public double getCircum() {
         return circum;

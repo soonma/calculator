@@ -82,36 +82,43 @@ public class App {
                     } else if (index.equals("원넓이")) {
                         while (true) {
                             calculator = new Calculator();
+                            try {
+                                System.out.print("원의 반지름을 입력 하세요 : ");
+                                fristnumber = sc.nextInt();
+                                calculator.setCircle(fristnumber);
 
-                            System.out.print("원의 반지름을 입력 하세요 : ");
-                            fristnumber = sc.nextInt();
-                            calculator.setCircle(fristnumber);
-                            System.out.println("원의 넓이 : " + calculator.getCircum());
-                            calculator.setCirlist();
-
-
-                            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
-                            index = sc.nextLine();
-                            sc.nextLine();//씹힘
-                            if (index.equals("remove")) {
-                                calculator.setCirRemove();
+                            } catch (InputMismatchException e) {
+                                System.out.println("값이 잘못 입력 했습니다, 다시해주세요");
+                                sc.nextLine();
                             }
+                            if (calculator.getCheck()) {
+                                System.out.println("원의 넓이 : " + calculator.getCircum());
+                                calculator.setCirlist();
+                                sc.nextLine();
+                                System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+                                index = sc.nextLine();
 
-                            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
-                            index = sc.nextLine();
-                            if (index.equals("inquiry")) {
-                                calculator.getCirlist();
-                            }
-                            i++;
-                            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료) : " + i + " 번째");
-                            index = sc.nextLine();
-                            if (index.equals("exit")) {
-                                break;
+                                if (index.equals("remove")) {
+                                    calculator.setCirRemove();
+                                }
+
+                                System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+                                index = sc.nextLine();
+                                if (index.equals("inquiry")) {
+                                    calculator.getCirlist();
+                                }
+                                i++;
+                                System.out.println("더 계산하시겠습니까? (exit 입력 시 종료) : " + i + " 번째");
+                                index = sc.nextLine();
+                                if (index.equals("exit")) {
+                                    break;
+                                }
                             }
                         }
                     }
                 }
-            } catch (BadInputException e) {}
+            } catch (BadInputException e) {
+            }
         }
     }
 }

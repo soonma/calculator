@@ -66,7 +66,6 @@ public class Main {
             i++;
             System.out.print("더 계산하시겠습니까? (exit 입력 시 종료) : " + i + " 번째");
 
-
             index = sc.nextLine();
             if (index.equals("exit")) {
                 break;

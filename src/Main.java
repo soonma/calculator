@@ -1,14 +1,16 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        ArrayList<Integer> intlist = new ArrayList<Integer>();
         int fristnumber;
         int secondnumber;
         int result = 0;
-        int[] index = new int[10];
-        int chago=0;
-        String countinueYN;
+
+
+        String index;
         int i = 0;
 
         String operate;
@@ -23,11 +25,12 @@ public class Main {
             System.out.print("연산자를 입력 하세요 ");
             operate = input.next();
 
-//            5. 연산 결과 10개를 저장할 수 있는 배열을 선언 및 생성하고 연산의 결과를 저장합니다.
-//                    - 연산의 결과를 저장할 수 있도록 적합한 타입의 배열을 생성합니다.
-//                    - 연산의 결과를 비어있는 곳에 저장하기 위해 저장할 때마다 count 합니다.
-//            연산 결과가 10개를 초과하는 경우 가장 먼저 저장된 결과를 삭제하고 새로운 연산 결과가 저장될 수 있도록 소스 코드를 수정합니다.
-//            현재 저장된 index가 마지막(9)라면 가장 먼저 저장된 결과 값이 삭제 되고 새로운 결과 값이 마지막 index에 저장될 수 있도록 구현합니다
+
+//            7. 연산 결과가 10개로 고정되지 않고 무한이 저장될 수 있도록 소스 코드를 수정합니다.
+//            - JCF(Java Collection Framework)를 사용합니다. (e.g. List, Set …)
+//            - “remove”라는 문자열을 입력받으면 가장 먼저 저장된 결과가 삭제될 수 있도록 구현합니다.
+//            8. **inquiry”라는 문자열이 입력되면 저장된 연산 결과 전부를 출력합니다.**
+//            - foreach(향상된 for문)을 활용하여 구현 해봅니다.
 
             if (operate.equals("+")) {
                 result = fristnumber + secondnumber;
@@ -42,31 +45,35 @@ public class Main {
             }
             System.out.println("결과: " + result);
 
-            chago = result;
-            //i가 10 이상 , 즉 배열의 입력 값을 초과 했을때 값을 밀어 내는 방식의 코드
-            if (i >= 10) {
-                for (int j = 0; j< index.length; j++  ){
-                    if (j == index.length-1) {
-                        index[j] = chago;
-                    } else {
-                        index[j] = index[j + 1];
-                    }
-                }
-            } else {
-                index[i] = result;
-            }
-            i++;
+            intlist.add(result);
 
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            index = sc.nextLine();
+
+            if (index.equals("remove")) {
+                intlist.remove(0);
+            }
+
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            index = sc.nextLine();
+
+            if (index.equals("inquiry")) {
+                for(Integer integer : intlist) {
+                    System.out.println(integer);
+                }
+            }
+
+            i++;
             System.out.print("더 계산하시겠습니까? (exit 입력 시 종료) : " + i + " 번째");
 
-            countinueYN = sc.nextLine();
-            if (countinueYN.equals("exit")) {
+
+            index = sc.nextLine();
+            if (index.equals("exit")) {
                 break;
             }
         }
-        for (int j = 0; j < index.length; j++) {
-            System.out.println(index[j]);
-        }
+
+
     }
 }
 

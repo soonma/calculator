@@ -69,6 +69,7 @@ public class Calculator {
     //원의 넓이 구하는 공식
     public void setCircle(int fristnumber){
         circum = fristnumber+fristnumber*Circumference;
+        check=true;
     }
     public double getCircum() {
         return circum;
@@ -80,6 +81,7 @@ public class Calculator {
         doubleArrayListlist.remove(0);
         System.out.println("삭제 되었습니다.");
     }
+
 
     public void getCirlist() {
         System.out.println("아래 조회된 값입니다.");

@@ -5,11 +5,11 @@ import LvTwo.BadOpertorException;
 import java.util.ArrayList;
 import java.util.stream.Stream;
 
-public class ArithmeticCalculator<T> extends Calculator {
-    ArrayList<T> numbers = new ArrayList<>();
+public class ArithmeticCalculator extends Calculator {
+    ArrayList<Double> numbers = new ArrayList<>();
     //Stream<T> stream = numbers.stream();
 
-    T result;
+    double result;
     private boolean check = true;
     static char operate = 0;
 
@@ -34,23 +34,28 @@ public class ArithmeticCalculator<T> extends Calculator {
     public void getArithmetic(double firstNumber, double secondNumber) {
         if (operate=='+'){
             OperatorType op = OperatorType.PLUS;
-            System.out.println("결과: " + op.getBinaryOperator( firstNumber,secondNumber));
+            result =op.getBinaryOperator( firstNumber,secondNumber);
+            System.out.println("결과: " + result);
             setAddList();
         } else if (operate=='-'){
             OperatorType op = OperatorType.MINUS;
-            System.out.println("결과: " + op.getBinaryOperator( firstNumber,secondNumber));
+            result =op.getBinaryOperator( firstNumber,secondNumber);
+            System.out.println("결과: " + result);
             setAddList();
         } else if (operate=='*'){
             OperatorType op = OperatorType.TIMED;
-            System.out.println("결과: " + op.getBinaryOperator( firstNumber,secondNumber));
+            result =op.getBinaryOperator( firstNumber,secondNumber);
+            System.out.println("결과: " + result);
             setAddList();
         } else if (operate=='/'){
             OperatorType op = OperatorType.DIVIDE;
-            System.out.println("결과: " + op.getBinaryOperator( firstNumber,secondNumber));
+            result =op.getBinaryOperator( firstNumber,secondNumber);
+            System.out.println("결과: " + result);
             setAddList();
         } else if(operate=='%'){
             OperatorType op = OperatorType.REMAIN;
-            System.out.println("결과: " + op.getBinaryOperator( firstNumber,secondNumber));
+            result = op.getBinaryOperator( firstNumber,secondNumber);
+            System.out.println("결과: " + result);
             setAddList();
         }
 
@@ -68,7 +73,7 @@ public class ArithmeticCalculator<T> extends Calculator {
     @Override
     public void setList() {
         System.out.println("아래 조회된 값입니다.");
-        for (T doub : numbers) {
+        for (Double doub : numbers) {
             System.out.println(doub);
         }
     }

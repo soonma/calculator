@@ -22,7 +22,7 @@ public class App {
                     throw new BadInputException();
                 } else {
                     if (index.equals("사칙")) {
-                        ArithmeticCalculator<Double> calculator = new ArithmeticCalculator<>();
+                        ArithmeticCalculator calculator = new ArithmeticCalculator();
                        while (true) {
                             try {
                                 System.out.print("첫번째 숫자를 입력 하세요: ");
@@ -83,11 +83,13 @@ public class App {
 
                                 System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
                                 index = sc.nextLine();
+                                sc.nextLine();
                                 if (index.equals("remove")) {
                                     calculator.setReMove();
                                 }
 
                                 System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+                                sc.nextLine();
                                 index = sc.nextLine();
                                 if (index.equals("inquiry")) {
                                     calculator.setList();

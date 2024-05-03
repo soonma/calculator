@@ -8,32 +8,29 @@ public class Calculator {
     private ArrayList<Integer> intlist = new ArrayList<Integer>();
 
 
-    public void setResult(int fristnumber, int secondnumber, char operate)  {
-        try {
-            //연산식 이외에 문자가 들어오면 fail
-            if (!(operate == ('+')) && !(operate == ('-')) && !(operate == ('*')) && !(operate == ('/'))) {
-                throw new BadOpertorException();
-            //숫자 이외에 문자가 들어오면 fail
-            } else {
-                if (operate == ('+')) {
-                    result = fristnumber + secondnumber;
-                } else if (operate == ('-')) {
-                    result = fristnumber - secondnumber;
-                } else if (operate == ('*')) {
-                    result = fristnumber * secondnumber;
-                } else if (operate == ('/')) {
-                    result = fristnumber / secondnumber;
-                }
-                check = true;
+    public void setResult(int fristnumber, int secondnumber, char operate) throws BadOpertorException,ArithmeticException {
+            switch (operate) {
+                case '+' :
+                    result = result + fristnumber;
+                    break;
+                case '-' :
+                    result = result - fristnumber;
+                    break;
+                case '*' :
+                    result = result * fristnumber;
+                    break;
+                case '/' :
+                    if (secondnumber == 0) {
+                        throw new ArithmeticException();
+                    }
+                    result = result / fristnumber;
+                    break;
+                default:
+                    throw new BadOpertorException();
             }
-        } catch ( ArithmeticException e) {
-            check = false;
-            System.out.println("피연산자 중에 값이 0 이있습니다. 다시 해주세요");
-        } catch (BadOpertorException e) {
-            check = false;
         }
 
-    }
+
 
 
     public void setIntlist() {

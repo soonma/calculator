@@ -10,8 +10,8 @@ public class Main {
         int result = 0;
 
 
-        String index;
-        int i = 0;
+        String Scan;
+        int arraycnt = 0;
 
         String operate;
         Scanner input = new Scanner(System.in);
@@ -48,26 +48,26 @@ public class Main {
             intlist.add(result);
 
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
-            index = sc.nextLine();
+            Scan = sc.nextLine();
 
-            if (index.equals("remove")) {
+            if (Scan.equals("remove")) {
                 intlist.remove(0);
             }
 
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
-            index = sc.nextLine();
+            Scan = sc.nextLine();
 
-            if (index.equals("inquiry")) {
+            if (Scan.equals("inquiry")) {
                 for(Integer integer : intlist) {
                     System.out.println(integer);
                 }
             }
 
-            i++;
-            System.out.print("더 계산하시겠습니까? (exit 입력 시 종료) : " + i + " 번째");
+            arraycnt++;
+            System.out.print("더 계산하시겠습니까? (exit 입력 시 종료) : " + arraycnt + " 번째");
 
-            index = sc.nextLine();
-            if (index.equals("exit")) {
+            Scan = sc.nextLine();
+            if (Scan.equals("exit")) {
                 break;
             }
         }

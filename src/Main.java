@@ -11,10 +11,11 @@ public class Main {
 
 
         String index;
-        int i = 0;
+        int Arrycount = 0;
 
         String operate;
         Scanner input = new Scanner(System.in);
+        boolean flag = false;
 
         while (true) {
 
@@ -31,44 +32,50 @@ public class Main {
 //            - “remove”라는 문자열을 입력받으면 가장 먼저 저장된 결과가 삭제될 수 있도록 구현합니다.
 //            8. **inquiry”라는 문자열이 입력되면 저장된 연산 결과 전부를 출력합니다.**
 //            - foreach(향상된 for문)을 활용하여 구현 해봅니다.
-
-            if (operate.equals("+")) {
-                result = fristnumber + secondnumber;
-            } else if (operate.equals("-")) {
-                result = fristnumber - secondnumber;
-            } else if (operate.equals("*")) {
-                result = fristnumber * secondnumber;
-            } else if (operate.equals("/")) {
-                result = fristnumber / secondnumber;
-            } else if (operate.equals("%")) {
-                result = fristnumber % secondnumber;
-            }
-            System.out.println("결과: " + result);
-
-            intlist.add(result);
-
-            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
-            index = sc.nextLine();
-
-            if (index.equals("remove")) {
-                intlist.remove(0);
-            }
-
-            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
-            index = sc.nextLine();
-
-            if (index.equals("inquiry")) {
-                for(Integer integer : intlist) {
-                    System.out.println(integer);
+            try {
+                if (operate.equals("+")) {
+                    result = fristnumber + secondnumber;
+                } else if (operate.equals("-")) {
+                    result = fristnumber - secondnumber;
+                } else if (operate.equals("*")) {
+                    result = fristnumber * secondnumber;
+                } else if (operate.equals("/")) {
+                    result = fristnumber / secondnumber;
+                } else if (operate.equals("%")) {
+                    result = fristnumber % secondnumber;
                 }
+                System.out.println("결과: " + result);
+                flag = true;
+            } catch (ArithmeticException e) {
+                System.out.println("나눗셈 도중에 피연산자 값이 0으로 확인 했습니다. 다시 해주시세요");
+                flag = false;
             }
+            if (flag) {
+                intlist.add(result);
 
-            i++;
-            System.out.print("더 계산하시겠습니까? (exit 입력 시 종료) : " + i + " 번째");
+                System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+                index = sc.nextLine();
 
-            index = sc.nextLine();
-            if (index.equals("exit")) {
-                break;
+                if (index.equals("remove")) {
+                    intlist.remove(0);
+                }
+
+                System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+                index = sc.nextLine();
+
+                if (index.equals("inquiry")) {
+                    for (Integer integer : intlist) {
+                        System.out.println(integer);
+                    }
+                }
+
+                Arrycount++;
+                System.out.print("더 계산하시겠습니까? (exit 입력 시 종료) : " + Arrycount + " 번째");
+
+                index = sc.nextLine();
+                if (index.equals("exit")) {
+                    break;
+                }
             }
         }
 

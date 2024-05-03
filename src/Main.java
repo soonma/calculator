@@ -6,10 +6,10 @@ public class Main {
         int fristnumber;
         int secondnumber;
         int result = 0;
-        int[] index = new int[10];
+        int[] arr = new int[10];
         int chago=0;
         String countinueYN;
-        int i = 0;
+        int arrycnt = 0;
 
         String operate;
         Scanner input = new Scanner(System.in);
@@ -44,28 +44,28 @@ public class Main {
 
             chago = result;
             //i가 10 이상 , 즉 배열의 입력 값을 초과 했을때 값을 밀어 내는 방식의 코드
-            if (i >= 10) {
-                for (int j = 0; j< index.length; j++  ){
-                    if (j == index.length-1) {
-                        index[j] = chago;
+            if (arrycnt >= arr.length) {
+                for (int j = 0; j< arr.length; j++  ){
+                    if (j == arr.length-1) {
+                        arr[j] = chago;
                     } else {
-                        index[j] = index[j + 1];
+                        arr[j] = arr[j + 1];
                     }
                 }
             } else {
-                index[i] = result;
+                arr[arrycnt] = result;
             }
-            i++;
+            arrycnt++;
 
-            System.out.print("더 계산하시겠습니까? (exit 입력 시 종료) : " + i + " 번째");
+            System.out.print("더 계산하시겠습니까? (exit 입력 시 종료) : " + arrycnt + " 번째");
 
             countinueYN = sc.nextLine();
             if (countinueYN.equals("exit")) {
                 break;
             }
         }
-        for (int j = 0; j < index.length; j++) {
-            System.out.println(index[j]);
+        for (int j = 0; j < arr.length; j++) {
+            System.out.println(arr[j]);
         }
     }
 }

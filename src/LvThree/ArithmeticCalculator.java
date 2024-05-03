@@ -17,18 +17,14 @@ public class ArithmeticCalculator extends Calculator {
         numbers.clear();
     }
 
-    public boolean getCheck(char operate) {
-        try {
+    public boolean getCheck(char operate) throws BadOpertorException {
+
             //연산식 이외에 문자가 들어오면 fail
             if (!(operate == ('+')) && !(operate == ('-')) && !(operate == ('*')) && !(operate == ('/'))) {
                 throw new BadOpertorException();
             }
             this.operate = operate;
             check = true;
-        } catch (BadOpertorException e) {
-            check = false;
-        }
-
         return check;
     }
     public void getArithmetic(double firstNumber, double secondNumber) {
@@ -80,7 +76,7 @@ public class ArithmeticCalculator extends Calculator {
 
     @Override
     double getResult() {
-        return 0;
+        return result;
     }
 
     public boolean setCheck() {

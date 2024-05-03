@@ -12,22 +12,28 @@ public class Calculator {
             switch (operate) {
                 case '+' :
                     result = result + fristnumber;
+                    check = true;
                     break;
                 case '-' :
                     result = result - fristnumber;
+                    check = true;
                     break;
                 case '*' :
                     result = result * fristnumber;
+                    check = true;
                     break;
                 case '/' :
                     if (secondnumber == 0) {
                         throw new ArithmeticException();
                     }
                     result = result / fristnumber;
+                    check = true;
                     break;
                 default:
+                    check = false;
                     throw new BadOpertorException();
             }
+
         }
 
 

@@ -38,9 +38,9 @@ public class App {
                 System.out.println("값이 잘못 입력 했습니다, 다시해주세요");
                 sc.nextLine(); //여기시 씹힙 현상 발생 하여 무한 루프 발생 해당 구문으로 초기화 진행
             } catch (BadOpertorException e){
-                System.out.println(e.getMessage());
+                e.getMessage();
             } catch (ArithmeticException e) {
-                System.out.println(e.getMessage());
+                e.getMessage();
             }
 
 //            1. 양의 정수 2개(0 포함)와 연산 기호를 매개변수로 받아 사칙연산(+,-,*,/) 기능을 수행한 후 결과 값을 반환하는 메서드와 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성합니다.

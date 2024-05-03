@@ -40,6 +40,7 @@ public class Main {
             } else if (operate.equals("%")) {
                 result = fristnumber % secondnumber;
             }
+
             System.out.println("결과: " + result);
 
             chago = result;

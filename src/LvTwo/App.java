@@ -12,6 +12,7 @@ public class App {
         int secondnumber;
         int i = 0;
         char operate;
+        boolean posiIntCheck = true;
 
         String index = "";
 
@@ -19,13 +20,20 @@ public class App {
 
         while (true) {
             try {
+
                 System.out.print("첫번째 숫자를 입력 하세요: ");
                 fristnumber = sc.nextInt();
                 System.out.print("두번째 숫자를 입력 하세요: ");
                 secondnumber = sc.nextInt();
                 System.out.print("연산자를 입력 하세요 ");
                 operate = sc.next().charAt(0);
+                //양의 정수가 아닐떄 되돌아가는 코드 추가
+                if (fristnumber <= 0&& secondnumber <= 0 ) {
+                    System.out.println("양의 정수가 아님");
+                    continue;
+                }
                 calculator.setResult(fristnumber, secondnumber, operate);
+
             } catch (InputMismatchException e) {
                 //Calculator 함수에서 오입력 시 발생하는 Exception 처리가 제대로 되지 않아 Main 함수에서 진행 아마 입력 하자마자 발생 해서 우선순위때문인듯
                 System.out.println("값이 잘못 입력 했습니다, 다시해주세요");

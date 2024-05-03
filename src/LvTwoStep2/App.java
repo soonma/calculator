@@ -6,6 +6,10 @@ import LvTwo.BadOpertorException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+//try 안에 try-catch문 삭제 진행 후 코드가 전보다 보는게 좋아짐(크게 묶는 작업을 진행)
+//app.java에 operate 값을 기준으로 메서드를 호출 하는 방식을 ArithmeticCalculator안에 getResult메서드로 사용
+//씹힘문제는 완전히 해결 못함
+
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
